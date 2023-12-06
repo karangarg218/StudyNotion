@@ -176,15 +176,36 @@ const login = async(req,res)=>{
             const tokenPayload ={
                 email:user.email,
                 id:user._id,
-                role:user.role
+                role:user.accountType
             }
             const token= jsonWebToken.sign(tokenPayload,serverConfig.JWT_SECRET,{
                 expiresIn:'3h'
             })
             user.token = token;
-            
+            user.password=undefined;
+
+            const options={
+                expires: new Date(Date.now()+3*24*60*60*1000),
+                httpOnly:true
+
+            }
+            res.cookie("token",token,options).status(200).json({
+                success:true,
+                token,
+                user,
+                message:`logged in successfully`
+            })
         }
     }catch(error){
+        console.log(error);
+        res.status(500).json({
+            message:`login failure`,
+            err:error,
 
+        })
     }
+} 
+const changePassword = async (req,res)=>{
+        const currentPassword = req.body;
+
 }
