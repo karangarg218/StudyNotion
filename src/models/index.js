@@ -8,5 +8,6 @@ module.exports={
      RatingAndReviewModel : require('./RatingAndReview'),
      SectionModel : require('./Section'),
      SubSectionModel : require('./SubSection'),
-     TagModel : require('./Tag')   
+     TagModel : require('./Tag'),
+     CategoryModel : require('./Category') 
 }
