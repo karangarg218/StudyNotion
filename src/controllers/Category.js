@@ -18,7 +18,7 @@ const createCategory = async (req,res)=>{
         console.log(CategoryDetails);
 
         return res.status(200).json({
-            status:success,
+            success:true,
             message:`Successfully created the category`
         })
 
