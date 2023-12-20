@@ -1,4 +1,5 @@
 module.exports={
     databaseConfig:require('./database'),
-    serverConfig:require('./serverConfig')
+    serverConfig:require('./serverConfig'),
+    razorPay:require('./RazorPay')
 }
